@@ -11,7 +11,7 @@ angular.module('directive.loading', [])
                 scope.$watch(scope.isLoading, function (v)
                 {
                     if(v){
-                        elm.show;
+                        elm.css('display', 'block');
                     }else{
                         elm.css('display', 'none');
                     }

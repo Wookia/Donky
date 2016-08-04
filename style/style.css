@@ -1,6 +1,7 @@
 .single-row{
     padding-top: 8px;
     padding-bottom: 8px;
+    border-bottom: 1px #eeeeee solid;
 }
 
 .avatar{
@@ -9,9 +10,10 @@
 }
 
 .loading{
+    top: 0px;
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.2);
-    
+    background-color: rgba(0,0,0,0.1);
+    text-align: center;
 }
