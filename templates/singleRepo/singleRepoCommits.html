@@ -1,0 +1,8 @@
+<div class="row single-row" ng-repeat="commit in commitsData ">
+    <div class="col-lg-2">{{commit.publishDate}}</div> 
+    <div class="col-lg-6">{{commit.comment}}</div>
+    <div class="col-lg-4">
+        <img class="avatar" ng-src="{{commit.avatar}}"> 
+        <span>{{commit.authorName}}</span>
+    </div>
+</div>

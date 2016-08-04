@@ -1,0 +1,11 @@
+<div class="row single-row" ng-repeat="release in releasesData ">
+    <div class="col-lg-2">{{release.publishDate}}</div>
+    <div class="col-lg-1">{{release.tag}}</div>
+    <div class="col-lg-2">{{release.name}}</div>
+    <div class="col-lg-1"><a ng-href="{{release.link}}"> link </a></div>
+    
+    <div class="col-lg-offset-2 col-lg-4">
+        <img class="avatar" ng-src="{{release.avatar}}">
+        <span>{{release.authorName}}</span>
+    </div>
+</div>

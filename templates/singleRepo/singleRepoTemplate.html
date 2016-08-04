@@ -1,0 +1,4 @@
+<h1>{{repoName}}</h1>
+<a class="btn" role="button" ng-class="state === 'single.releases' ? 'btn-primary' : 'btn-default'" ui-sref="single.releases({repoName:repoName})">Releases</a> 
+<a class="btn" role="button" ng-class="state === 'single.commits' ? 'btn-primary' : 'btn-default'" ui-sref="single.commits({repoName:repoName})">Commits</a>
+<div ui-view="repoDetiles"></div>
