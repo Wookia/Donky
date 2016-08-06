@@ -1,5 +1,6 @@
 
 angular.module('reposList', []).controller('reposListController', function ListOfReposController($scope, $http, $stateParams){
+        $scope.error = false;
         $http({
           method: 'GET',
           url: 'https://api.github.com/orgs/Donky-Network/repos'
@@ -15,8 +16,8 @@ angular.module('reposList', []).controller('reposListController', function ListO
                 });
             });
           }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+              $scope.isError = true;
+              $scope.message = 'Cannot get access to github api';
           });
         
 })

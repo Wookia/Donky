@@ -1,4 +1,4 @@
-angular.module('gitDonkyApp', ['reposList', 'singleRepo', 'directive.loading', 'ui.router']).
+angular.module('gitDonkyApp', ['reposList', 'singleRepo', 'directive.loading', 'directive.error', 'ui.router']).
 config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -24,4 +24,4 @@ config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRou
           },
           controller: 'singleRepoController'
         });
-}]);
+}])

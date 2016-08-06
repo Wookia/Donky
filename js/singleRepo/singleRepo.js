@@ -22,8 +22,8 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
                 });
             });
           }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+              $scope.isError = true;
+              $scope.message = 'Cannot get access to github api';
           }); 
        };
        $scope.getReleases = function (){
@@ -46,8 +46,8 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
                 });
             });
           }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
+              $scope.isError = true;
+              $scope.message = 'Cannot get access to github api';
           });
        };
        $scope.doUpdate = function(){  
