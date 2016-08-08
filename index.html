@@ -10,7 +10,7 @@
         <script src="angular/angular.js"></script>
         <script src="angular/angular-resource.js"></script>
         <script src="angular/angular-cookies.js"></script>
-        <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+        <script src="angular/angular-ui-router.js"></script>
         <script src="js/app.js"></script>
         <script src="js/reposList/reposList.js"></script>
         <script src="js/singleRepo/singleRepo.js"></script>
@@ -22,7 +22,7 @@
         <div class="row bg-primary header">
             <div class="col-lg-12 ">
                 <div class=""> 
-                    <a ui-sref="repos"><img src="../images/logo.png" alt="Donky"></a>
+                    <a ui-sref="repos"><img src="./images/logo.png" alt="Donky"></a>
                     <span>public repositories</span>
                     <div style="float:right;">
                         <form novalidate >
@@ -40,6 +40,6 @@
     </div>
         
     <error-message message="message" error="error"></error-message>
-    <div loading class="loading" data-loading ><img  src="../images/progresBar.gif"></div>
+    <div loading class="loading" data-loading ><img  src="./images/progresBar.gif"></div>
     </body>
 </html>

@@ -7,6 +7,7 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
        var coreReleaseUrl = 'https://api.github.com/repos/Donky-Network/'+$scope.repoName+'/releases';
        var commitUrl = coreCommitUrl;
        var releaseUrl = coreReleaseUrl;
+       var defaultAvatar = './images/defaultAvatar.png';
        
        $scope.getCommits = function(){
         if($scope.oAuth && $scope.oAuth.length) commitUrl = coreCommitUrl + '?access_token=' + $scope.oAuth;
@@ -18,7 +19,7 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
             $scope.commitsData = [];
             angular.forEach(response.data, function(singleCommit, key){
                 var date = new Date(singleCommit.commit.committer.date);
-                if(singleCommit.author === null )var avatar = '../images/defaultAvatar.png';
+                if(singleCommit.author === null )var avatar = defaultAvatar;
                 else var avatar = singleCommit.author.avatar_url;
                 $scope.commitsData.push({
                     publishDate: date.toUTCString(),
@@ -42,7 +43,7 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
             $scope.releasesData = [];
             angular.forEach(response.data, function(singleRelease, key){
                 var date = new Date(singleRelease.published_at);
-                if(singleRelease.author === null )var avatar = '../images/defaultAvatar.png';
+                if(singleRelease.author === null )var avatar = defaultAvatar;
                 else var avatar = singleRelease.author.avatar_url;
                 $scope.releasesData.push({
                     name: singleRelease.name,
