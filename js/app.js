@@ -1,4 +1,4 @@
-angular.module('gitDonkyApp', ['reposList', 'singleRepo', 'directive.loading', 'directive.error', 'ui.router']).
+angular.module('gitDonkyApp', ['reposList', 'singleRepo', 'directive.loading', 'directive.error', 'ui.router', 'ngCookies']).
 config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -24,4 +24,17 @@ config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRou
           },
           controller: 'singleRepoController'
         });
-}])
+}]).controller('gitDonkyAppController', function($scope, $cookies){
+    $scope.error = false;
+    $scope.message = '';
+    $scope.displayMessage = function(message){
+        $scope.error = true;
+        $scope.message = message;
+    }
+    $scope.saveOAuth = function (){
+        $cookies.put('gitOAuth', $scope.oAuth);
+    }
+    $scope.getOAuth = function (){
+        $scope.oAuth = $cookies.get('gitOAuth');
+    }
+});

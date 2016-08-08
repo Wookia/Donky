@@ -3,17 +3,19 @@ angular.module('directive.error', [])
     {
         return {
             restrict: "A",
-            template: '<div>' +'{{message}}' + '</div>',
+            replace: true,
+            template: '<div class="errorMessage alert alert-danger">' +'{{message}}' + '</div>',
             link: function ($scope, elm, attrs)
             {   
                 $scope.$watch('error', function (v)
                 {
                     if($scope.error){
                             elm.css('display', 'block');
+                            $timeout(function(){
+                                    elm.css('display', 'none');
+                                    $scope.error = false;
+                                }, 5000);
                     }
-                    $timeout(function(){
-                            elm.css('display', 'none');
-                        }, 5000);
                 
                 });
             }

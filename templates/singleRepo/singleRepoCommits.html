@@ -1,15 +1,20 @@
 
-<div class="row single-row">
-    <div class="col-lg-2">publish date</div> 
-    <div class="col-lg-6">comment</div>
-    <div class="col-lg-4">
+<div class="row single-row hidden-xs">
+    <div class="col-sm-2">publish date</div> 
+    <div class="col-sm-6">comment</div>
+    <div class="col-sm-3">
         author
     </div>
+    <div class="col-sm-1"><span ng-click="getCommits()" class="refresh glyphicon glyphicon-refresh" aria-hidden="true"></span></div>
+
+</div>
+<div ng-hide="commitsData.length"  class="row">
+    <div class="col-sm-12 col-sm-12">No commits found</div>
 </div>
 <div class="row single-row" ng-repeat="commit in commitsData ">
-    <div class="col-lg-2">{{commit.publishDate}}</div> 
-    <div class="col-lg-6">{{commit.comment}}</div>
-    <div class="col-lg-4">
+    <div class="col-sm-2">{{commit.publishDate}}</div> 
+    <div class="col-sm-6">{{commit.comment}}</div>
+    <div class="col-sm-4">
         <img class="avatar" ng-src="{{commit.avatar}}"> 
         <span>{{commit.authorName}}</span>
     </div>

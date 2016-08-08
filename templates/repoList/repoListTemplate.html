@@ -1,13 +1,16 @@
 
-<div  class="errorMessage" error-message message="message" error="error"></div>
-<div class="row single-row hidden-sm hidden-xs">
-    <div class="col-md-3">Name</div>
-    <div class="col-md-3">Language</div>
+<div class="row single-row hidden-xs">
+    <div class="col-sm-3">Name</div>
+    <div class="col-sm-3">Language</div>
+    <div class="col-sm-offset-5 col-sm-1"><span ng-click="doUpdate()" class="refresh glyphicon glyphicon-refresh" aria-hidden="true"></span></div>
+</div>
+<div ng-hide="repos.length"  class="row">
+    <div class="col-sm-12">No repos found</div>
 </div>
 <div class="row single-row" ng-repeat="repo in repos ">
-    <div class="col-md-3 col-sm-7">{{repo.name}}</div>
-    <div class="col-md-2 col-sm-5">{{repo.language}}</div> 
-    <div class="col-md-2 col-sm-4"><a class="btn btn-default" role="button"  ui-sref="single.releases({repoName:repo.name})">Releases</a></div> 
-    <div class="col-md-2 col-sm-4"><a class="btn btn-default" role="button"  ui-sref="single.commits({repoName:repo.name})">Commits</a></div>
-    <div class="col-md-2 col-sm-4"><a class="btn btn-default" role="button" ng-href="{{repo.url}}">Repo on github</a></div> 
+    <div class="col-sm-3">{{repo.name}}</div>
+    <div class="col-sm-2">{{repo.language}}</div> 
+    <div class="col-sm-2"><a class="btn btn-default" role="button"  ui-sref="single.releases({repoName:repo.name})">Releases</a></div> 
+    <div class="col-sm-2"><a class="btn btn-default" role="button"  ui-sref="single.commits({repoName:repo.name})">Commits</a></div>
+    <div class="col-sm-2"><a class="btn btn-default" role="button" ng-href="{{repo.url}}">Repo on github</a></div> 
 </div>

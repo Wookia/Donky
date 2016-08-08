@@ -2,9 +2,13 @@
 angular.module('singleRepo', []).controller('singleRepoController', function SingleRepoController($rootScope, $scope, $state, $http){
        $scope.repoName = $state.params.repoName;
        $scope.state = $state.current.name;
-       var commitUrl = 'https://api.github.com/repos/Donky-Network/'+$scope.repoName+'/commits';
-       var releaseUrl = 'https://api.github.com/repos/Donky-Network/'+$scope.repoName+'/releases';
+       var coreCommitUrl = 'https://api.github.com/repos/Donky-Network/'+$scope.repoName+'/commits';
+       var coreReleaseUrl = 'https://api.github.com/repos/Donky-Network/'+$scope.repoName+'/releases';
+       var commitUrl = coreCommitUrl;
+       var releaseUrl = coreReleaseUrl;
        $scope.getCommits = function(){
+        if($scope.oAuth && $scope.oAuth.length) commitUrl = coreCommitUrl + '?access_token=' + $scope.oAuth;
+        else commitUrl = coreCommitUrl;
           $http({
           method: 'GET',
           url: commitUrl
@@ -22,11 +26,12 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
                 });
             });
           }, function errorCallback(response) {
-              $scope.isError = true;
-              $scope.message = 'Cannot get access to github api';
+              $scope.displayMessage('Cannot get access to github api due to: ' + response.status + ' ' + response.statusText);
           }); 
        };
        $scope.getReleases = function (){
+        if($scope.oAuth && $scope.oAuth.length) releaseUrl = coreReleaseUrl + '?access_token=' + $scope.oAuth;
+        else releaseUrl = coreReleaseUrl;
            $http({
           method: 'GET',
           url: releaseUrl
@@ -46,8 +51,7 @@ angular.module('singleRepo', []).controller('singleRepoController', function Sin
                 });
             });
           }, function errorCallback(response) {
-              $scope.isError = true;
-              $scope.message = 'Cannot get access to github api';
+              $scope.displayMessage('Cannot get access to github api due to: ' + response.status + ' ' + response.statusText);
           });
        };
        $scope.doUpdate = function(){  

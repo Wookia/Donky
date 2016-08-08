@@ -21,9 +21,16 @@
 .errorMessage{
     display: none;
     position: fixed;
-    top: 100px;
-    height: 40px;
-    width: 100px;
-    background-color: red;
-    padding: 20px;
+    right: 10px;
+    top: 0px;
+}
+
+.refresh{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header{
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
